@@ -1,7 +1,6 @@
 set nocompatible                " remove fallBack Vi
-"----- Plugins --------------------------------------------------
-so ~/.vim/plugins.vim
 
+so ~/.vim/plugins.vim           " read pluginsFile
 
 syntax enable
 colorscheme atom-dark-256
@@ -14,13 +13,16 @@ set guioptions-=L 		        " Removes left hand scroll bar
 
 set linespace=15
 
+set foldcolumn=0
+
+
 set t_CO=256                    " Use 256 Colors
 
 set showmode                    " always show what mode we're currently editing in
 set nowrap                      " don't wrap lines
 set tabstop=4                   " a tab is four spaces
 set smarttab
-set tags=tags
+set tags=tags                   " ctags file
 set softtabstop=4               " when hitting <BS>, pretend like a tab is removed, even if spaces
 set expandtab                   " expand tabs by default (overloadable per file type later)
 set shiftwidth=4                " number of spaces to use for autoindenting
@@ -53,6 +55,14 @@ nmap <leader><space> :nohlsearch<cr>
 "fast saves 
 nmap <leader>w :w!<cr>
 
+"fast buffer Switching
+nmap <leader>1 :bprev<cr>
+nmap <leader>2 :bnext<cr>
+nmap <leader>3 :buffers<cr>
+
+
+
+
 "easier window navigation
 nmap <C-h> <C-w>h
 nmap <C-j> <C-w>j
@@ -65,6 +75,15 @@ nmap 25 :vertical resize 40<cr>
 nmap 50 <c-w>=
 nmap 75 :vertical resize 120<cr>
 
+"Quickly browse to any tag/symbol in the project.
+""Tip: run ctags -R to regenerated the index.
+nmap <Leader>f :tag<space>
+nmap <Leader>fr :!ctags -R --exclude=vendor --exclude=node_modules<cr>
+
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
+
+
 
 "----- Plugins --------------------------------------------------
 nmap <C-b> :NERDTreeToggle<cr>
@@ -75,7 +94,7 @@ nmap <C-r> :CtrlPMRUFiles<cr>
 "----- Plugins Settings -----------------------------------------
 
 "/ -- CtrlP --
-let g:ctrlp_custom_ignore = 'vendor\node_modules\|git'
+let g:ctrlp_custom_ignore = 'vendor\|node_modules\|git'
 let g:ctrlp_match_window = 'top,order:ttb,min:1,max:30,results:30'
 
 "/ -- NerdTree --
@@ -87,6 +106,16 @@ let NERDTreeHijackNetrw = 0
 "AutoSource vimrc on save
 augroup autosourcing
     autocmd!
-    autocmd BufWritePost .vimrc source %
+    autocmd BufWritePost vimrc source %
 augroup END
+
+
+"-------------Tips and Reminders--------------"
+"" - Press 'zz' to instantly center the line where the cursor is
+"" - yyp - copyAndPaste direct line
+"" - u/. - undo redo 
+
+"" - ^]  - find function where i am 
+
+"" Buffer ,1,2,3 just for now til i find better way
 

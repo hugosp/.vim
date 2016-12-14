@@ -1,5 +1,4 @@
 set nocompatible                " remove fallBack Vi
-
 so ~/.vim/plugins.vim           " read pluginsFile
 
 syntax enable

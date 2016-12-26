@@ -1,4 +1,5 @@
 set nocompatible                " remove fallBack Vi
+
 so ~/.vim/plugins.vim           " read pluginsFile
 
 syntax enable
@@ -117,4 +118,7 @@ augroup END
 "" - ^]  - find function where i am 
 
 "" Buffer ,1,2,3 just for now til i find better way
+
+"" cs change surround , ds delete sirround
+"" cst change tag osv
 

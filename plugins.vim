@@ -15,6 +15,8 @@ Plugin 'othree/html5.vim'
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'rking/ag.vim'
 Plugin 'tpope/vim-surround'
+Plugin 'StanAngeloff/php.vim'
+Plugin 'ervandew/supertab'
 
 
 call vundle#end()            " required

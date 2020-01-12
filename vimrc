@@ -2,6 +2,8 @@ set nocompatible                " remove fallBack Vi
 
 so ~/.vim/plugins.vim           " read pluginsFile
 
+set t_Co=256                    " Use 256 Colors
+
 syntax enable
 colorscheme atom-dark-256
 
@@ -14,9 +16,6 @@ set guioptions-=L 		        " Removes left hand scroll bar
 set linespace=15
 
 set foldcolumn=0
-
-
-set t_CO=256                    " Use 256 Colors
 
 set showmode                    " always show what mode we're currently editing in
 set nowrap                      " don't wrap lines
@@ -46,6 +45,9 @@ let g:mapleader = ","
 
 "----- Mappings  -------------------------------------------------
 
+"cltr-l = normal
+inoremap <C-l> <Esc>
+
 "edit vimrc
 nmap <leader>ev :tabedit $MYVIMRC<cr>
 
@@ -70,10 +72,10 @@ nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
 
 "Resize vsplit
-nmap <C-v> :vertical resize +5<cr>
-nmap 25 :vertical resize 40<cr>
-nmap 50 <c-w>=
-nmap 75 :vertical resize 120<cr>
+"nmap <C-v> :vertical resize +5<cr>
+"nmap 25 :vertical resize 40<cr>
+"nmap 50 <c-w>=
+"nmap 75 :vertical resize 120<cr>
 
 "Quickly browse to any tag/symbol in the project.
 ""Tip: run ctags -R to regenerated the index.
